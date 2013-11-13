@@ -25,6 +25,10 @@
     "require": {
         "php": ">=5.3.3"
     },
+    "require-dev": {
+        "athletic/athletic": "~0.1.7",
+        "pimple/pimple": "2.0.x-dev as v1.0.2"
+    },
     "autoload": {
         "psr-0": {
             "Yac\\": "lib"
