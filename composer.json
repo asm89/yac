@@ -1,0 +1,38 @@
+{
+    "name":              "asm89/yac",
+    "description":       "Yet another container",
+    "type":              "library",
+    "license":           "MIT",
+    "homepage":          "https://github.com/asm89/yac",
+    "minimum-stability": "dev",
+    "keywords":          [
+        "container",
+        "service location",
+        "dependency injection"
+    ],
+    "authors": [
+        {
+            "name":     "Marco Pivetta",
+            "email":    "ocramius@gmail.com",
+            "homepage": "http://ocramius.github.io/"
+        },
+        {
+            "name":     "Alexander",
+            "email":    "iam.asm89@gmail.com",
+            "homepage": "http://asm89.github.io/"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "autoload": {
+        "psr-0": {
+            "Yac\\": "lib"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    }
+}
