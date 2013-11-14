@@ -42,6 +42,6 @@ YacPerformance\YacPerformanceEvent
 
 ## Known limitations
 
-- No paramter/service called `__yac`
-- All services are "shared", "prototype" services are not supported
+- No parameter/service called `__yac`
+- All services are "shared", "prototype" services are not yet supported
 - ...
