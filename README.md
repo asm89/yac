@@ -29,15 +29,24 @@ $std = $c->std;   // "fast" LazyMap way
 
 ## Performance
 
+Yac is much faster than Pimple!
+
 ```bash
  $ php -n ./vendor/bin/athletic -p ./tests/YacPerformance/ -b ./tests/bootstrap.php -f GroupedFormatter
 YacPerformance\YacPerformanceEvent
   fetch_service-performance
-    Method Name                                 Iterations    Average Time     Ops/s             Relative
-    ------------------------------  ----------  ------------ --------------    ---------         ---------
-    pimpleFetchService            : [Baseline]  [100,000   ] [0.0000030675197] [325,996.28015]
-    yacFetchServicePimpleStyle    :             [100,000   ] [0.0000032290554] [309,688.08976]   [105.27%]
-    yacFetchServiceLazyMapStyle   :             [100,000   ] [0.0000007874918] [1,269,854.49503] [25.67%]
+    Method Name                                 Iterations    Average Time      Ops/s    Relative
+    ------------------------------  ----------  ------------ --------------   ---------  ---------
+    pimpleFetchService            : [Baseline] [100,000   ] [0.0000042015409] [238,007.91486]
+    yacFetchServicePimpleStyle    :            [100,000   ] [0.0000032225394] [310,314.27956] [76.70%]
+    yacFetchServiceLazyMapStyle   :            [100,000   ] [0.0000027879906] [358,681.27057] [66.36%]
+
+  fetch_initialized_service-performance
+    Method Name                                 Iterations    Average Time      Ops/s    Relative
+    ------------------------------  ----------  ------------ --------------   ---------  ---------
+    pimpleFetchInitializedService : [Baseline] [100,000   ] [0.0000010025978] [997,408.92228]
+    yacFetchInitializedServicePimpleStyle:            [100,000   ] [0.0000007377648] [1,355,445.46456] [73.59%]
+    yacFetchInitializedServiceLazyMapStyle:            [100,000 ] [0.0000002871366] [3,482,663.50475] [28.64%]
 ```
 
 ## Known limitations

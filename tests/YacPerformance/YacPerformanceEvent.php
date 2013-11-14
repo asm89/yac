@@ -14,10 +14,15 @@ class YacPerformanceEvent extends AthleticEvent
     public function setUp()
     {
         $this->pimple = new Pimple();
-        $this->pimple['service'] = $this->pimple->share(function ($c) { return new \stdClass(); });
+        $this->pimple['service'] = function ($c) { return new \stdClass(); };
+        $this->pimple['initializedService'] = function () { return new \stdClass(); };
+        $this->pimple['initializedService'];
 
-        $this->yac = new Pimple();
+
+        $this->yac = new Yac();
         $this->yac['service'] = function ($c) { return new \stdClass(); };
+        $this->yac['initializedService'] = function () { return new \stdClass(); };
+        $this->yac->initializedService;
     }
 
     /**
@@ -46,5 +51,33 @@ class YacPerformanceEvent extends AthleticEvent
     public function yacFetchServiceLazyMapStyle()
     {
         $this->yac->service;
+    }
+
+    /**
+     * @baseline
+     * @iterations 100000
+     * @group fetch_initialized_service-performance
+     */
+    public function pimpleFetchInitializedService()
+    {
+        $this->pimple['initializedService'];
+    }
+
+    /**
+     * @iterations 100000
+     * @group fetch_initialized_service-performance
+     */
+    public function yacFetchInitializedServicePimpleStyle()
+    {
+        $this->yac['initializedService'];
+    }
+
+    /**
+     * @iterations 100000
+     * @group fetch_initialized_service-performance
+     */
+    public function yacFetchInitializedServiceLazyMapStyle()
+    {
+        $this->yac->initializedService;
     }
 }
